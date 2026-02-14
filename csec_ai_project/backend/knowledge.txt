@@ -1,0 +1,4 @@
+Our company provides:
+- landing page design
+- AI chatbot development
+- fullstack development

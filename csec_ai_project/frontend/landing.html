@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Landing Page</title>
+</head>
+
+<body>
+
+<script>
+if(!localStorage.getItem("user")){
+    window.location="login.html";
+}
+</script>
+
+<h1>AI Chatbot</h1>
+
+<input id="message">
+<button onclick="send()">Send</button>
+
+<div id="chat"></div>
+
+<script>
+async function send(){
+
+    let msg = document.getElementById("message").value;
+
+    let res = await fetch("http://127.0.0.1:8000/chat",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({message:msg})
+    });
+
+    let data = await res.json();
+
+    document.getElementById("chat").innerHTML +=
+    "<p><b>Bot:</b> "+data.response+"</p>";
+}
+</script>
+
+</body>
+</html>
