@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Landing Page</title>
+<title>Landing</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <script>
 if(!localStorage.getItem("user")){
-    window.location="login.html";
+ window.location="login.html";
 }
 </script>
 
@@ -19,23 +20,10 @@ if(!localStorage.getItem("user")){
 
 <div id="chat"></div>
 
-<script>
-async function send(){
+<br><br>
+<a href="admin.html">Go to Admin Upload</a>
 
-    let msg = document.getElementById("message").value;
-
-    let res = await fetch("http://127.0.0.1:8000/chat",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({message:msg})
-    });
-
-    let data = await res.json();
-
-    document.getElementById("chat").innerHTML +=
-    "<p><b>Bot:</b> "+data.response+"</p>";
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
