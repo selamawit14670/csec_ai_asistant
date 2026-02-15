@@ -4,12 +4,10 @@ from pydantic import BaseModel
 router = APIRouter()
 
 class Message(BaseModel):
-    message:str
+    message: str
 
 @router.post("/chat")
-async def chat(msg:Message):
-
+async def chat(msg: Message):
     return {
-        "response":
-        "Hello! We provide web development and AI chatbot solutions for businesses."
+        "response": "Hello! We provide web development and AI chatbot solutions for businesses."
     }
