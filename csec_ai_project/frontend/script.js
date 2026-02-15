@@ -2,7 +2,7 @@ async function send(){
 
  let msg=document.getElementById("message").value;
 
- let res=await fetch("http://127.0.0.1:8000/chat",{
+ let res = await fetch("http://127.0.0.1:8005/chat",{
    method:"POST",
    headers:{"Content-Type":"application/json"},
    body:JSON.stringify({message:msg})
@@ -21,7 +21,7 @@ async function upload(){
  let form=new FormData();
  form.append("file",file);
 
- await fetch("http://127.0.0.1:8000/upload",{
+ await fetch("http://127.0.0.1:8005/upload",{
    method:"POST",
    body:form
  });
